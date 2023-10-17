@@ -236,6 +236,9 @@ function sendAjax(dataForm, el) {
         contentType: 'application/json',
         success: function (response) {
             clearFields()
+            if (response.error) {
+                $('.message').html(response.message)
+            }
         },
         error: function (error) {
             console.log(error)
@@ -277,7 +280,7 @@ function infoOpenModal(elem) {
         bodyText = $('.modal#infoModal .modal-body')
     titleText.html('')
     bodyText.html('')
-    if (type == 'type-1') {
+    if (type == 'test') {
         titleText.html(`
             <div class="h1 _title36 modal-title" id="exampleModalLabel">Заказать обратный звонок</div>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
@@ -295,3 +298,49 @@ function infoOpenModal(elem) {
     maskField()
     $('#infoModal').modal('show')
 }
+
+// $('footer .logo').on('click', function(elem) {
+//     test('222', elem)
+// })
+
+// $('footer .logo').hover(function(elem) {
+//     test('', $(this))
+// })
+
+
+// $(this) == $('footer .logo')
+
+
+// function test(dataForm, el) {
+//     // $(el).css({
+//     //     'background-color': '#ffffff'
+//     // })
+//     $(el).animate({
+//         marginLeft: '+=50px',
+//         opacity: '+=0.25'
+//     }, 1000)
+// }
+
+// $('form input').on('input', function() {
+//     let s = $(this),
+//         s_clear = $.trim($(s).val())
+
+//     if (s_clear.length > 0) {
+//         $(this).removeClass('error')
+//     } else {
+//         $(this).addClass('error')
+//     }
+// })
+// $('form select').on('change', function() {
+//     let value = $(this).val()
+
+//     if (value > 5) {
+//         console.log(1);
+//     } else if (value == 1) {
+//         console.log(3);
+//     } else if (value == 'gdsgdfgdf') {
+//         $(this).after('<div class="btn open-modal" data-type-modal="test">Open Modal</div>')
+//     } else {
+//         console.log(2);
+//     }
+// })
