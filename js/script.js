@@ -54,6 +54,16 @@ new Swiper(".blogSlider", {
     },
 });
 
+new Swiper(".categorySlider", {
+    slidesPerView: 9,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+      nextEl: ".categoryMiniSection .swiper-button-next",
+      prevEl: ".categoryMiniSection .swiper-button-prev",
+    },
+});
+
 $(document).on('click', '.checkField', function (el) {
   el.preventDefault();
   checkField(el)
@@ -481,3 +491,9 @@ async function init() {
         myMap.setCenter(coords);
     }
 }
+
+$('.variants .item_a ul li').on('click', function() {
+    $(this).parents('ul').find('li').removeClass('active')
+    $(this).addClass('active')
+    $(this).parents('.name').find('> span').text($(this).text())
+})
