@@ -64,6 +64,27 @@ new Swiper(".categorySlider", {
     },
 });
 
+let pc_slider_1 = new Swiper(".pcSlider_1", {
+    loop: true,
+    spaceBetween: 2,
+    slidesPerView: 5,
+    mousewheel: true,
+    direction: "vertical",
+    freeMode: {
+        enabled: true,
+        sticky: true,
+    },
+    watchSlidesProgress: true,
+  });
+let pc_slider_2 = new Swiper(".pcSlider_2", {
+    loop: true,
+    spaceBetween: 10,
+    mousewheel: true,
+    thumbs: {
+      swiper: pc_slider_1,
+    },
+});
+
 $(document).on('click', '.checkField', function (el) {
   el.preventDefault();
   checkField(el)
